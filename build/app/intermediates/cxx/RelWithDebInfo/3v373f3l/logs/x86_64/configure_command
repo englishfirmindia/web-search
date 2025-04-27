@@ -1,0 +1,19 @@
+/usr/bin/cmake \
+  -H/home/johnson/flutter/packages/flutter_tools/gradle/src/main/groovy \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=35 \
+  -DANDROID_PLATFORM=android-35 \
+  -DANDROID_ABI=x86_64 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86_64 \
+  -DANDROID_NDK=/home/johnson/Android/ndk/27.0.12077973 \
+  -DCMAKE_ANDROID_NDK=/home/johnson/Android/ndk/27.0.12077973 \
+  -DCMAKE_TOOLCHAIN_FILE=/home/johnson/Android/ndk/27.0.12077973/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/usr/bin/ninja \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/johnson/Desktop/Englishfirm/april/englishfirm/build/app/intermediates/cxx/RelWithDebInfo/3v373f3l/obj/x86_64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/johnson/Desktop/Englishfirm/april/englishfirm/build/app/intermediates/cxx/RelWithDebInfo/3v373f3l/obj/x86_64 \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -B/home/johnson/Desktop/Englishfirm/april/englishfirm/android/app/.cxx/RelWithDebInfo/3v373f3l/x86_64 \
+  -GNinja \
+  -Wno-dev \
+  --no-warn-unused-cli

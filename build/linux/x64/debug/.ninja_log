@@ -1,0 +1,56 @@
+# ninja log v5
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_engine.h	5c4628f6f3250ca0
+2146	2623	1745349080113526919	runner/CMakeFiles/englishfirm.dir/my_application.cc.o	7b208fa56b35acde
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/flutter/_phony_	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_call.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_response.h	5c4628f6f3250ca0
+2764	2961	0	CMakeFiles/install.util	30f9be898fdde4b7
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_value.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_view.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h	5c4628f6f3250ca0
+4	2144	0	flutter/_phony_	5c4628f6f3250ca0
+2623	2763	1745349080259519301	intermediates_do_not_run/englishfirm	7c3c9f42419cf851
+12553	13189	1745348892157757020	runner/CMakeFiles/englishfirm.dir/main.cc.o	de78a76b30739544
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h	5c4628f6f3250ca0
+4	2144	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so	5c4628f6f3250ca0
+2145	2580	1745349080071529111	runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.cc.o	bf4d2143bc336736
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_engine.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_call.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_method_response.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_value.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/fl_view.h	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	5c4628f6f3250ca0
+1	2127	0	flutter/_phony_	5c4628f6f3250ca0
+1	2127	0	/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/flutter/_phony_	5c4628f6f3250ca0
+2128	2544	1745349517738512386	runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.cc.o	bf4d2143bc336736
+2128	2570	1745349517767511898	runner/CMakeFiles/englishfirm.dir/my_application.cc.o	7b208fa56b35acde
+2570	2709	1745349517901509643	intermediates_do_not_run/englishfirm	7c3c9f42419cf851
+2709	2846	0	CMakeFiles/install.util	30f9be898fdde4b7
