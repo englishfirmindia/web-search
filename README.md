@@ -15,8 +15,12 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 <<<<<<< HEAD
+<<<<<<< HEAD
 # flutter_version_1.2
 # onlychat
+=======
+
+>>>>>>> 243332ac4cdcab99a05f5f736402836e68bd2bb1
 =======
 
 >>>>>>> 243332ac4cdcab99a05f5f736402836e68bd2bb1
