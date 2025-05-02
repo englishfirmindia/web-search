@@ -30,16 +30,10 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
   bool _isBotTyping = false;
   bool _isLoading = true;
   String _selectedLanguage = 'en-US';
-  final Map<String, String> _languageLocales = {
-    'English': 'en-US',
-    'Hindi': 'hi-IN',
-    'Punjabi': 'pa-IN',
-    'Arabic': 'ar-SA',
-    'Nepali': 'ne-NP',
-    'Malayalam': 'ml-IN',
-  };
+
+  
   late AnimationController _animationController;
-  late Animation<double> _fadeAnimation;
+
   late Animation<double> _micPulseAnimation;
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
   final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
@@ -57,7 +51,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
       vsync: this,
       duration: const Duration(milliseconds: 800),
     );
-    _fadeAnimation = CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
+
     _micPulseAnimation = Tween<double>(begin: 1.0, end: 1.1).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     )..addStatusListener((status) {
@@ -75,7 +69,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     try {
       await dotenv.load(fileName: "assets/.env");
       setState(() {
-        apiKey = dotenv.env['GEMINI_API_KEY'];
+        apiKey = dotenv.env['OPENAI_API_KEY'];
         _isLoading = false;
         if (apiKey == null || apiKey!.isEmpty) {
           Fluttertoast.showToast(msg: "API Key not found in .env file");
@@ -97,10 +91,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     });
   }
 
-  Future<void> _savePreferences() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('language', _selectedLanguage);
-  }
+
 
   Future<void> _setupPushNotifications() async {
     // Request permission for notifications
@@ -188,7 +179,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
                   Fluttertoast.showToast(msg: 'Update failed: $e');
                 }
               } else {
-                const appStoreUrl = 'https://apps.apple.com/app/id<YOUR_APP_ID>';
+                const appStoreUrl = 'https://apps.apple.com/app/id6743951099';
                 if (await canLaunchUrl(Uri.parse(appStoreUrl))) {
                   await launchUrl(Uri.parse(appStoreUrl));
                 } else {
@@ -253,7 +244,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
         "userId": user?.uid,
         "userEmail": user?.email,
         "timestamp": DateTime.now(),
-        "language": _selectedLanguage,
+       
       };
       await FirebaseFirestore.instance.collection('chat_messages').add(botMessageData);
       setState(() {
@@ -267,51 +258,52 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
   }
 
   Future<String> _getAIResponse(String userInput) async {
-    final String url =
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$apiKey";
+  const String model = "gpt-3.5-turbo"; // or "gpt-4"
+  final String url = "https://api.openai.com/v1/chat/completions";
 
-    String languageName = _languageLocales.keys.firstWhere(
-      (k) => _languageLocales[k] == _selectedLanguage,
-      orElse: () => 'English',
+  
+  
+  final Map<String, dynamic> requestBody = {
+    "model": model,
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam. "
+            "Your responses should be clear, concise, and relevant to PTE-related topics. "
+            "If a question is unrelated to the PTE exam, respond with: 'I am designed to answer PTE-related questions only.'"
+      },
+      {
+        "role": "user",
+        "content": userInput
+      }
+    ],
+    "temperature": 0.2
+  };
+
+  try {
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer $apiKey",
+      },
+      body: jsonEncode(requestBody),
     );
 
-    final Map<String, dynamic> requestBody = {
-      "contents": [
-        {
-          "parts": [
-            {
-              "text": "You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam. "
-                  "Your responses should be clear, concise, and relevant to PTE-related topics. "
-                  "The student's query is in $languageName (locale: $_selectedLanguage). "
-                  "If a question is unrelated to the PTE exam, respond with: 'I am designed to answer PTE-related questions only.' "
-                  "\n\nStudent's query:\n\n$userInput"
-            }
-          ]
-        }
-      ]
-    };
-
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode(requestBody),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        String aiResponse = data["candidates"][0]["content"]["parts"][0]["text"];
-        aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
-        return aiResponse;
-      } else {
-        print('AI response failed: ${response.statusCode} - ${response.body}');
-        return "Sorry, I couldn't process your request.";
-      }
-    } catch (e) {
-      print('Error in _getAIResponse: $e');
-      return "Error: ${e.toString()}";
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      String aiResponse = data["choices"][0]["message"]["content"];
+      aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
+      return aiResponse;
+    } else {
+      print('OpenAI response failed: ${response.statusCode} - ${response.body}');
+      return "Sorry, I couldn't process your request.";
     }
+  } catch (e) {
+    print('Error in _getAIResponse: $e');
+    return "Error: ${e.toString()}";
   }
+}
 
   Future<void> _logout() async {
     try {
@@ -348,58 +340,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     );
   }
 
-  void _showSettings() {
-    showDialog(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) => AlertDialog(
-          title: const Text('Settings'),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Language Preference'),
-                DropdownButton<String>(
-                  isExpanded: true,
-                  value: _selectedLanguage,
-                  items: _languageLocales.entries.map((entry) {
-                    return DropdownMenuItem<String>(
-                      value: entry.value,
-                      child: Text(entry.key),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    if (newValue != null) {
-                      setDialogState(() {
-                        _selectedLanguage = newValue;
-                      });
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  _savePreferences();
-                });
-                Navigator.pop(context);
-              },
-              child: const Text('Save'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
+  
   void _showProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
@@ -848,9 +789,6 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
                 case 'logout':
                   _logout();
                   break;
-                case 'settings':
-                  _showSettings();
-                  break;
                 case 'profile':
                   _showProfile();
                   break;
@@ -868,7 +806,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
             itemBuilder: (context) => const [
               PopupMenuItem(value: 'account_details', child: Text('Account Details')),
               PopupMenuItem(value: 'logout', child: Text('Logout')),
-              PopupMenuItem(value: 'settings', child: Text('Settings')),
+           
               PopupMenuItem(value: 'profile', child: Text('Profile')),
               PopupMenuItem(value: 'change_password', child: Text('Change Password')),
               PopupMenuItem(value: 'delete_account', child: Text('Delete Account')),
@@ -1018,20 +956,9 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
 
   String _getHintText(String locale) {
     switch (locale) {
-      case 'hi-IN':
-        return 'संदेश टाइप करें...';
-      case 'pa-IN':
-        return 'ਸੁਨੇਹਾ ਟਾਈਪ ਕਰੋ...';
-      case 'ar-SA':
-        return 'اكتب رسالة...';
-      case 'ne-NP':
-        return 'सन्देश टाइप गर्नुहोस्...';
-      case 'ml-IN':
-        return 'സന്ദേശം ടൈപ്പ് ചെയ്യുക...';
       case 'en-US':
       default:
         return 'Type a message...';
     }
   }
 }
-
