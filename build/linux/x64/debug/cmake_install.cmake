@@ -68,7 +68,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMP
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/englishfirm")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/englishfirm"
-         OLD_RPATH "/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral:"
+         OLD_RPATH "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux:/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/englishfirm")
@@ -98,6 +98,18 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMP
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   file(INSTALL DESTINATION "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  file(INSTALL DESTINATION "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux/liburl_launcher_linux_plugin.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -134,6 +146,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/flutter/cmake_install.cmake")
   include("/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/runner/cmake_install.cmake")
+  include("/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux/cmake_install.cmake")
 
 endif()
 

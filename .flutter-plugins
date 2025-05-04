@@ -1,9 +1,6 @@
 # This is a generated file; do not edit or check into version control.
 cloud_firestore=/home/johnson/.pub-cache/hosted/pub.dev/cloud_firestore-5.6.6/
 cloud_firestore_web=/home/johnson/.pub-cache/hosted/pub.dev/cloud_firestore_web-4.4.6/
-file_selector_linux=/home/johnson/.pub-cache/hosted/pub.dev/file_selector_linux-0.9.3+2/
-file_selector_macos=/home/johnson/.pub-cache/hosted/pub.dev/file_selector_macos-0.9.4+2/
-file_selector_windows=/home/johnson/.pub-cache/hosted/pub.dev/file_selector_windows-0.9.3+4/
 firebase_analytics=/home/johnson/.pub-cache/hosted/pub.dev/firebase_analytics-11.4.5/
 firebase_analytics_web=/home/johnson/.pub-cache/hosted/pub.dev/firebase_analytics_web-0.5.10+11/
 firebase_auth=/home/johnson/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/
@@ -14,15 +11,7 @@ firebase_messaging=/home/johnson/.pub-cache/hosted/pub.dev/firebase_messaging-15
 firebase_messaging_web=/home/johnson/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.10.5/
 firebase_storage=/home/johnson/.pub-cache/hosted/pub.dev/firebase_storage-12.4.5/
 firebase_storage_web=/home/johnson/.pub-cache/hosted/pub.dev/firebase_storage_web-3.10.12/
-flutter_plugin_android_lifecycle=/home/johnson/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/
 fluttertoast=/home/johnson/.pub-cache/hosted/pub.dev/fluttertoast-8.2.12/
-image_picker=/home/johnson/.pub-cache/hosted/pub.dev/image_picker-1.1.2/
-image_picker_android=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/
-image_picker_for_web=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_for_web-3.0.6/
-image_picker_ios=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_ios-0.8.12+2/
-image_picker_linux=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_linux-0.2.1+2/
-image_picker_macos=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_macos-0.2.1+2/
-image_picker_windows=/home/johnson/.pub-cache/hosted/pub.dev/image_picker_windows-0.2.1+1/
 in_app_update=/home/johnson/.pub-cache/hosted/pub.dev/in_app_update-4.2.3/
 package_info_plus=/home/johnson/.pub-cache/hosted/pub.dev/package_info_plus-8.3.0/
 path_provider_linux=/home/johnson/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/

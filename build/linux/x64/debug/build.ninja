@@ -208,13 +208,13 @@ build /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral
 #############################################
 # Order-only phony target for englishfirm
 
-build cmake_object_order_depends_target_englishfirm: phony || flutter/flutter_assemble
+build cmake_object_order_depends_target_englishfirm: phony || cmake_object_order_depends_target_url_launcher_linux_plugin flutter/flutter_assemble
 
 build runner/CMakeFiles/englishfirm.dir/main.cc.o: CXX_COMPILER__englishfirm_Debug /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/runner/main.cc || cmake_object_order_depends_target_englishfirm
   DEFINES = -DAPPLICATION_ID=\"com.example.englishfirm\"
   DEP_FILE = runner/CMakeFiles/englishfirm.dir/main.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/englishfirm.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/englishfirm.dir
 
@@ -222,7 +222,7 @@ build runner/CMakeFiles/englishfirm.dir/my_application.cc.o: CXX_COMPILER__engli
   DEFINES = -DAPPLICATION_ID=\"com.example.englishfirm\"
   DEP_FILE = runner/CMakeFiles/englishfirm.dir/my_application.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/englishfirm.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/englishfirm.dir
 
@@ -230,7 +230,7 @@ build runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.c
   DEFINES = -DAPPLICATION_ID=\"com.example.englishfirm\"
   DEP_FILE = runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/include" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = runner/CMakeFiles/englishfirm.dir
   OBJECT_FILE_DIR = runner/CMakeFiles/englishfirm.dir/__/flutter
 
@@ -242,9 +242,9 @@ build runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.c
 #############################################
 # Link the executable intermediates_do_not_run/englishfirm
 
-build intermediates_do_not_run/englishfirm: CXX_EXECUTABLE_LINKER__englishfirm_Debug runner/CMakeFiles/englishfirm.dir/main.cc.o runner/CMakeFiles/englishfirm.dir/my_application.cc.o runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.cc.o | /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/libflutter_linux_gtk.so /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libharfbuzz.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+build intermediates_do_not_run/englishfirm: CXX_EXECUTABLE_LINKER__englishfirm_Debug runner/CMakeFiles/englishfirm.dir/main.cc.o runner/CMakeFiles/englishfirm.dir/my_application.cc.o runner/CMakeFiles/englishfirm.dir/__/flutter/generated_plugin_registrant.cc.o | plugins/url_launcher_linux/liburl_launcher_linux_plugin.so /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/libflutter_linux_gtk.so /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libharfbuzz.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
   FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral:"  "/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so"  /usr/lib/x86_64-linux-gnu/libgtk-3.so  /usr/lib/x86_64-linux-gnu/libgdk-3.so  /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /usr/lib/x86_64-linux-gnu/libpango-1.0.so  /usr/lib/x86_64-linux-gnu/libharfbuzz.so  /usr/lib/x86_64-linux-gnu/libatk-1.0.so  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /usr/lib/x86_64-linux-gnu/libcairo.so  /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/x86_64-linux-gnu/libgio-2.0.so  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  LINK_LIBRARIES = -Wl,-rpath,"/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux:/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral:"  plugins/url_launcher_linux/liburl_launcher_linux_plugin.so  "/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so"  /usr/lib/x86_64-linux-gnu/libgtk-3.so  /usr/lib/x86_64-linux-gnu/libgdk-3.so  /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /usr/lib/x86_64-linux-gnu/libpango-1.0.so  /usr/lib/x86_64-linux-gnu/libharfbuzz.so  /usr/lib/x86_64-linux-gnu/libatk-1.0.so  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /usr/lib/x86_64-linux-gnu/libcairo.so  /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/x86_64-linux-gnu/libgio-2.0.so  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /usr/lib/x86_64-linux-gnu/libglib-2.0.so
   OBJECT_DIR = runner/CMakeFiles/englishfirm.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -317,11 +317,129 @@ build runner/CMakeFiles/install/strip.util: CUSTOM_COMMAND runner/all
 build runner/install/strip: phony runner/CMakeFiles/install/strip.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/generated_plugins.cmake
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target url_launcher_linux_plugin
+
+
+#############################################
+# Order-only phony target for url_launcher_linux_plugin
+
+build cmake_object_order_depends_target_url_launcher_linux_plugin: phony || flutter/flutter_assemble
+
+build plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o: CXX_COMPILER__url_launcher_linux_plugin_Debug /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/messages.g.cc || cmake_object_order_depends_target_url_launcher_linux_plugin
+  DEFINES = -DFLUTTER_PLUGIN_IMPL -Durl_launcher_linux_plugin_EXPORTS
+  DEP_FILE = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o.d
+  FLAGS = -g -fPIC -fvisibility=hidden -Wall -Werror -pthread
+  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  OBJECT_FILE_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+
+build plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o: CXX_COMPILER__url_launcher_linux_plugin_Debug /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/url_launcher_plugin.cc || cmake_object_order_depends_target_url_launcher_linux_plugin
+  DEFINES = -DFLUTTER_PLUGIN_IMPL -Durl_launcher_linux_plugin_EXPORTS
+  DEP_FILE = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o.d
+  FLAGS = -g -fPIC -fvisibility=hidden -Wall -Werror -pthread
+  INCLUDES = -I"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral" -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  OBJECT_FILE_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target url_launcher_linux_plugin
+
+
+#############################################
+# Link the shared library plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+
+build plugins/url_launcher_linux/liburl_launcher_linux_plugin.so: CXX_SHARED_LIBRARY_LINKER__url_launcher_linux_plugin_Debug plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/messages.g.cc.o plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir/url_launcher_plugin.cc.o | /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/libflutter_linux_gtk.so /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libharfbuzz.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_LIBRARIES = -Wl,-rpath,"/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral"  "/home/johnson/Desktop/Englishfirm/april/only chat/linux/flutter/ephemeral/libflutter_linux_gtk.so"  /usr/lib/x86_64-linux-gnu/libgtk-3.so  /usr/lib/x86_64-linux-gnu/libgdk-3.so  /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /usr/lib/x86_64-linux-gnu/libpango-1.0.so  /usr/lib/x86_64-linux-gnu/libharfbuzz.so  /usr/lib/x86_64-linux-gnu/libatk-1.0.so  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /usr/lib/x86_64-linux-gnu/libcairo.so  /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/x86_64-linux-gnu/libgio-2.0.so  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  OBJECT_DIR = plugins/url_launcher_linux/CMakeFiles/url_launcher_linux_plugin.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = liburl_launcher_linux_plugin.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+  TARGET_PDB = url_launcher_linux_plugin.so.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build plugins/url_launcher_linux/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux" && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build plugins/url_launcher_linux/edit_cache: phony plugins/url_launcher_linux/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build plugins/url_launcher_linux/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux" && /usr/bin/cmake --regenerate-during-build -S"/home/johnson/Desktop/Englishfirm/april/only chat/linux" -B"/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/rebuild_cache: phony plugins/url_launcher_linux/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build plugins/url_launcher_linux/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build plugins/url_launcher_linux/CMakeFiles/install.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux" && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install: phony plugins/url_launcher_linux/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build plugins/url_launcher_linux/CMakeFiles/install/local.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux" && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install/local: phony plugins/url_launcher_linux/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build plugins/url_launcher_linux/CMakeFiles/install/strip.util: CUSTOM_COMMAND plugins/url_launcher_linux/all
+  COMMAND = cd "/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux" && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build plugins/url_launcher_linux/install/strip: phony plugins/url_launcher_linux/CMakeFiles/install/strip.util
+
+# =============================================================================
 # Target aliases.
 
 build englishfirm: phony intermediates_do_not_run/englishfirm
 
 build flutter_assemble: phony flutter/flutter_assemble
+
+build liburl_launcher_linux_plugin.so: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
+
+build url_launcher_linux_plugin: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
 
 # =============================================================================
 # Folder targets.
@@ -331,7 +449,7 @@ build flutter_assemble: phony flutter/flutter_assemble
 #############################################
 # Folder: /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug
 
-build all: phony flutter/all runner/all
+build all: phony flutter/all runner/all plugins/url_launcher_linux/all
 
 # =============================================================================
 
@@ -339,6 +457,13 @@ build all: phony flutter/all runner/all
 # Folder: /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/flutter
 
 build flutter/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/plugins/url_launcher_linux
+
+build plugins/url_launcher_linux/all: phony plugins/url_launcher_linux/liburl_launcher_linux_plugin.so
 
 # =============================================================================
 
@@ -354,14 +479,14 @@ build runner/all: phony intermediates_do_not_run/englishfirm
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/generated_config.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/generated_plugins.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/runner/CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/generated_config.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/generated_plugins.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/runner/CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/generated_config.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/generated_plugins.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/runner/CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux/CMakeLists.txt /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/ephemeral/generated_config.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/flutter/generated_plugins.cmake /home/johnson/Desktop/Englishfirm/april/only$ chat/linux/runner/CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################

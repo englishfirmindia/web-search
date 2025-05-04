@@ -24,16 +24,20 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin {
   final TextEditingController _messageController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
+  final ScrollController _scrollController = ScrollController(); // Added ScrollController
   String? apiKey;
   late stt.SpeechToText _speech;
   bool _isListening = false;
   bool _isBotTyping = false;
   bool _isLoading = true;
   String _selectedLanguage = 'en-US';
+  final List<String> _availableModels = [
+    'gpt-3.5-turbo',
+    'gpt-4',
+    'gpt-4-turbo'
+  ];
 
-  
   late AnimationController _animationController;
-
   late Animation<double> _micPulseAnimation;
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
   final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
@@ -91,14 +95,9 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     });
   }
 
-
-
   Future<void> _setupPushNotifications() async {
-    // Request permission for notifications
     await _firebaseMessaging.requestPermission();
-    // Subscribe to a topic for version update notifications
     await _firebaseMessaging.subscribeToTopic('app_updates');
-    // Handle foreground messages
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message.notification != null) {
         _showUpdateDialog(
@@ -119,7 +118,6 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
       final prefs = await SharedPreferences.getInstance();
       final lastCheck = prefs.getInt('last_update_check') ?? 0;
       final now = DateTime.now().millisecondsSinceEpoch;
-      // Check once per day
       if (now - lastCheck < 24 * 60 * 60 * 1000) return;
 
       await prefs.setInt('last_update_check', now);
@@ -200,6 +198,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
   void dispose() {
     _messageController.dispose();
     _animationController.dispose();
+    _scrollController.dispose(); // Dispose ScrollController
     super.dispose();
   }
 
@@ -231,25 +230,41 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
       await FirebaseFirestore.instance.collection('chat_messages').add(messageData);
       setState(() {
         _messages.add(messageData);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
+        });
       });
       _messageController.clear();
 
       setState(() => _isBotTyping = true);
-      String botResponse = await _getAIResponse(message);
+      List<Map<String, String>> botResponses = await _getAIResponses(message);
       setState(() => _isBotTyping = false);
 
-      final botMessageData = {
-        "text": botResponse,
-        "isUser": false,
-        "userId": user?.uid,
-        "userEmail": user?.email,
-        "timestamp": DateTime.now(),
-       
-      };
-      await FirebaseFirestore.instance.collection('chat_messages').add(botMessageData);
-      setState(() {
-        _messages.add(botMessageData);
-      });
+      for (var response in botResponses) {
+        final botMessageData = {
+          "text": '[${response["model"]}] ${response["response"]}',
+          "isUser": false,
+          "userId": user?.uid,
+          "userEmail": user?.email,
+          "timestamp": DateTime.now(),
+          "model": response["model"],
+        };
+        await FirebaseFirestore.instance.collection('chat_messages').add(botMessageData);
+        setState(() {
+          _messages.add(botMessageData);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _scrollController.animateTo(
+              _scrollController.position.maxScrollExtent,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOut,
+            );
+          });
+        });
+      }
     } catch (e) {
       setState(() => _isBotTyping = false);
       Fluttertoast.showToast(msg: "Failed to process message: $e");
@@ -257,53 +272,55 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     }
   }
 
-  Future<String> _getAIResponse(String userInput) async {
-  const String model = "gpt-3.5-turbo"; // or "gpt-4"
-  final String url = "https://api.openai.com/v1/chat/completions";
+  Future<List<Map<String, String>>> _getAIResponses(String userInput) async {
+    final String url = "https://api.openai.com/v1/chat/completions";
+    List<Map<String, String>> responses = [];
 
-  
-  
-  final Map<String, dynamic> requestBody = {
-    "model": model,
-    "messages": [
-      {
-        "role": "system",
-        "content": "You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam. "
-            "Your responses should be clear, concise, and relevant to PTE-related topics. "
-            "If a question is unrelated to the PTE exam, respond with: 'I am designed to answer PTE-related questions only.'"
-      },
-      {
-        "role": "user",
-        "content": userInput
+    for (String model in _availableModels) {
+      final Map<String, dynamic> requestBody = {
+        "model": model,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam. "
+                "Your responses should be clear, concise, and relevant to PTE-related topics. "
+                "If a question is unrelated to the PTE exam, respond with: 'I am designed to answer PTE-related questions only.'"
+          },
+          {
+            "role": "user",
+            "content": userInput
+          }
+        ],
+        "temperature": 0.2
+      };
+
+      try {
+        final response = await http.post(
+          Uri.parse(url),
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer $apiKey",
+          },
+          body: jsonEncode(requestBody),
+        );
+
+        if (response.statusCode == 200) {
+          final data = jsonDecode(response.body);
+          String aiResponse = data["choices"][0]["message"]["content"];
+          aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
+          responses.add({"model": model, "response": aiResponse});
+        } else {
+          print('OpenAI response failed for $model: ${response.statusCode} - ${response.body}');
+          responses.add({"model": model, "response": "Sorry, I couldn't process your request."});
+        }
+      } catch (e) {
+        print('Error in _getAIResponse for $model: $e');
+        responses.add({"model": model, "response": "Error: ${e.toString()}"});
       }
-    ],
-    "temperature": 0.2
-  };
-
-  try {
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer $apiKey",
-      },
-      body: jsonEncode(requestBody),
-    );
-
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      String aiResponse = data["choices"][0]["message"]["content"];
-      aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
-      return aiResponse;
-    } else {
-      print('OpenAI response failed: ${response.statusCode} - ${response.body}');
-      return "Sorry, I couldn't process your request.";
     }
-  } catch (e) {
-    print('Error in _getAIResponse: $e');
-    return "Error: ${e.toString()}";
+
+    return responses;
   }
-}
 
   Future<void> _logout() async {
     try {
@@ -340,7 +357,6 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     );
   }
 
-  
   void _showProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
@@ -806,7 +822,6 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
             itemBuilder: (context) => const [
               PopupMenuItem(value: 'account_details', child: Text('Account Details')),
               PopupMenuItem(value: 'logout', child: Text('Logout')),
-           
               PopupMenuItem(value: 'profile', child: Text('Profile')),
               PopupMenuItem(value: 'change_password', child: Text('Change Password')),
               PopupMenuItem(value: 'delete_account', child: Text('Delete Account')),
@@ -827,6 +842,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
           children: [
             Expanded(
               child: ListView.builder(
+                controller: _scrollController, // Attach ScrollController
                 padding: const EdgeInsets.all(10),
                 itemCount: _messages.length + (_isBotTyping ? 1 : 0),
                 itemBuilder: (context, index) {

@@ -1,7 +1,20 @@
-2025/04/23-23:46:29.589 a5cd Reusing MANIFEST /tmp/flutter_tools.JCNBER/flutter_tools_chrome_device.IKZDGW/Default/IndexedDB/http_localhost_39191.indexeddb.leveldb/MANIFEST-000001
-2025/04/23-23:46:29.589 a5cd Recovering log #4
-2025/04/23-23:46:29.589 a5cd Reusing old log /tmp/flutter_tools.JCNBER/flutter_tools_chrome_device.IKZDGW/Default/IndexedDB/http_localhost_39191.indexeddb.leveldb/000004.log 
-2025/04/23-23:46:29.610 a5cf Level-0 table #8: started
-2025/04/23-23:46:29.611 a5cf Level-0 table #8: 4682 bytes OK
-2025/04/23-23:46:29.613 a5cf Delete type=0 #4
-2025/04/23-23:46:29.613 a5cd Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/03-02:06:54.673 9aae Reusing MANIFEST /tmp/flutter_tools.JFLFFL/flutter_tools_chrome_device.UPJIYX/Default/IndexedDB/http_localhost_39191.indexeddb.leveldb/MANIFEST-000001
+2025/05/03-02:06:54.674 9aae Recovering log #7
+2025/05/03-02:06:54.674 9aae Reusing old log /tmp/flutter_tools.JFLFFL/flutter_tools_chrome_device.UPJIYX/Default/IndexedDB/http_localhost_39191.indexeddb.leveldb/000007.log 
+2025/05/03-02:06:54.687 9ab0 Level-0 table #11: started
+2025/05/03-02:06:54.688 9ab0 Level-0 table #11: 3376 bytes OK
+2025/05/03-02:06:54.689 9ab0 Delete type=0 #7
+2025/05/03-02:06:54.690 9ab0 Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at '\x00\x05\x00\x00\x05' @ 201 : 1
+2025/05/03-02:06:54.690 9ab0 Compacting 1@0 + 1@1 files
+2025/05/03-02:06:54.691 9ab0 Generated table #12@0: 60 keys, 3043 bytes
+2025/05/03-02:06:54.691 9ab0 Compacted 1@0 + 1@1 files => 3043 bytes
+2025/05/03-02:06:54.692 9ab0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/05/03-02:06:54.692 9ab0 Delete type=2 #11
+2025/05/03-02:06:54.693 9aaf Manual compaction at level-0 from '\x00\x05\x00\x00\x05' @ 201 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/05/03-02:08:14.692 9aaf Compacting 1@1 + 1@2 files
+2025/05/03-02:08:14.699 9aaf Generated table #13@1: 38 keys, 2825 bytes
+2025/05/03-02:08:14.699 9aaf Compacted 1@1 + 1@2 files => 2825 bytes
+2025/05/03-02:08:14.701 9aaf compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/05/03-02:08:14.701 9aaf Delete type=2 #5
+2025/05/03-02:08:14.702 9aaf Delete type=2 #12
+2025/05/03-02:08:14.702 9aaf Delete type=2 #8

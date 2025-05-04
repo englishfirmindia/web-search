@@ -1,6 +1,7 @@
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/englishfirm
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/data/icudtl.dat
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
 /home/johnson/Desktop/Englishfirm/april/only chat/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
