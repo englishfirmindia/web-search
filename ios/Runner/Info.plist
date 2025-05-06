@@ -4,6 +4,10 @@
 <dict>
     <key>MinimumOSVersion</key>
     <string>13.0</string>
+        <key>NSSpeechRecognitionUsageDescription</key>
+	<string>This app uses speech recognition to process your voice input for converting speech to text.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires access to the microphone for recording purposes.</string>
 	
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
