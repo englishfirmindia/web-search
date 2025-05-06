@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:in_app_update/in_app_update.dart';
+import 'package:flutter_linkify/flutter_linkify.dart'; // Added for clickable links
 import 'login_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -24,18 +25,13 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin {
   final TextEditingController _messageController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
-  final ScrollController _scrollController = ScrollController(); // Added ScrollController
+  final ScrollController _scrollController = ScrollController();
   String? apiKey;
   late stt.SpeechToText _speech;
   bool _isListening = false;
   bool _isBotTyping = false;
   bool _isLoading = true;
   String _selectedLanguage = 'en-US';
-  final List<String> _availableModels = [
-    'gpt-3.5-turbo',
-    'gpt-4',
-    'gpt-4-turbo'
-  ];
 
   late AnimationController _animationController;
   late Animation<double> _micPulseAnimation;
@@ -84,7 +80,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
         _isLoading = false;
       });
       Fluttertoast.showToast(msg: "Failed to load environment variables: $e");
-      print('Error loading .env: $e');
+      debugPrint('Error loading .env: $e');
     }
   }
 
@@ -142,7 +138,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
         body: releaseNotes,
       );
     } catch (e) {
-      print('Error checking for updates: $e');
+      debugPrint('Error checking for updates: $e');
     }
   }
 
@@ -177,7 +173,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
                   Fluttertoast.showToast(msg: 'Update failed: $e');
                 }
               } else {
-                const appStoreUrl = 'https://apps.apple.com/app/id6743951099';
+                const appStoreUrl = 'https://apps.apple.com/app/id6744954928';
                 if (await canLaunchUrl(Uri.parse(appStoreUrl))) {
                   await launchUrl(Uri.parse(appStoreUrl));
                 } else {
@@ -198,7 +194,7 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
   void dispose() {
     _messageController.dispose();
     _animationController.dispose();
-    _scrollController.dispose(); // Dispose ScrollController
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -241,85 +237,108 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
       _messageController.clear();
 
       setState(() => _isBotTyping = true);
-      List<Map<String, String>> botResponses = await _getAIResponses(message);
+      String botResponse = await _getAIResponse(message);
       setState(() => _isBotTyping = false);
 
-      for (var response in botResponses) {
-        final botMessageData = {
-          "text": '[${response["model"]}] ${response["response"]}',
-          "isUser": false,
-          "userId": user?.uid,
-          "userEmail": user?.email,
-          "timestamp": DateTime.now(),
-          "model": response["model"],
-        };
-        await FirebaseFirestore.instance.collection('chat_messages').add(botMessageData);
-        setState(() {
-          _messages.add(botMessageData);
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _scrollController.animateTo(
-              _scrollController.position.maxScrollExtent,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeOut,
-            );
-          });
+      final botMessageData = {
+        "text": botResponse,
+        "isUser": false,
+        "userId": user?.uid,
+        "userEmail": user?.email,
+        "timestamp": DateTime.now(),
+      };
+      await FirebaseFirestore.instance.collection('chat_messages').add(botMessageData);
+      setState(() {
+        _messages.add(botMessageData);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
         });
-      }
+      });
     } catch (e) {
       setState(() => _isBotTyping = false);
       Fluttertoast.showToast(msg: "Failed to process message: $e");
-      print('Error in _sendMessage: $e');
+      debugPrint('Error in _sendMessage: $e');
     }
   }
 
-  Future<List<Map<String, String>>> _getAIResponses(String userInput) async {
+  Future<String> _getAIResponse(String userInput) async {
+    const String model = "gpt-4o-search-preview";
     final String url = "https://api.openai.com/v1/chat/completions";
-    List<Map<String, String>> responses = [];
+    final user = FirebaseAuth.instance.currentUser;
+    String userName = 'User';
 
-    for (String model in _availableModels) {
-      final Map<String, dynamic> requestBody = {
-        "model": model,
-        "messages": [
-          {
-            "role": "system",
-            "content": "You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam. "
-                "Your responses should be clear, concise, and relevant to PTE-related topics. "
-                "If a question is unrelated to the PTE exam, respond with: 'I am designed to answer PTE-related questions only.'"
-          },
-          {
-            "role": "user",
-            "content": userInput
-          }
-        ],
-        "temperature": 0.2
-      };
+  if (user != null) {
+    final doc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .get();
 
-      try {
-        final response = await http.post(
-          Uri.parse(url),
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer $apiKey",
-          },
-          body: jsonEncode(requestBody),
-        );
-
-        if (response.statusCode == 200) {
-          final data = jsonDecode(response.body);
-          String aiResponse = data["choices"][0]["message"]["content"];
-          aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
-          responses.add({"model": model, "response": aiResponse});
-        } else {
-          print('OpenAI response failed for $model: ${response.statusCode} - ${response.body}');
-          responses.add({"model": model, "response": "Sorry, I couldn't process your request."});
-        }
-      } catch (e) {
-        print('Error in _getAIResponse for $model: $e');
-        responses.add({"model": model, "response": "Error: ${e.toString()}"});
-      }
+    if (doc.exists) {
+      userName = doc.data()?['name'] ?? user.email ?? 'User';
+    } else {
+      userName = user.email ?? 'User';
     }
+  }
+   
 
-    return responses;
+    final Map<String, dynamic> requestBody = {
+    "model": model,
+    "web_search_options": {
+      "user_location": {
+        "type": "approximate",
+        "approximate": {
+          "country": "AU",
+          "city": "Parramatta",
+          "region": "New South Wales"
+        }
+      }
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": """
+You are an AI assistant created by the Englishfirm AI team to help students prepare for the PTE exam.
+If a user's question is unrelated to the PTE or Englishfirm services, do not attempt to answer it. Instead, reply exactly with: $userName, please ask questions related to the PTE or Englishfirm services.
+Do not provide responses on general topics or questions outside the PTE domain.
+Your responses must always be:
+a) Clear, concise, and strictly focused on PTE-related topics or Englishfirm services.
+b) If the user's question is about any PTE institution, respond only with relevant information about Englishfirm and avoid mentioning other institutions.
+"""      },
+      {
+        "role": "user",
+        "content": userInput
+      }
+    ]
+  };
+
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $apiKey",
+        },
+        body: jsonEncode(requestBody),
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        String aiResponse = data["choices"][0]["message"]["content"];
+        aiResponse = aiResponse.replaceAll(RegExp(r'[*#]'), '');
+        return aiResponse;
+      } else {
+        
+        return "$userName I'm having trouble understanding your request. Please try again shortly.";
+      }
+    } catch (e) {
+      
+      return "Sorry, $userName something went wrong while processing your request. Please try again in a moment.";
+    }
   }
 
   Future<void> _logout() async {
@@ -757,6 +776,16 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
     );
   }
 
+  // Function to handle URL launching
+  Future<void> _onOpenLink(LinkableElement link) async {
+    final url = Uri.parse(link.url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      Fluttertoast.showToast(msg: "Could not open the link: ${link.url}");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
@@ -842,11 +871,18 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
           children: [
             Expanded(
               child: ListView.builder(
-                controller: _scrollController, // Attach ScrollController
+                controller: _scrollController,
                 padding: const EdgeInsets.all(10),
                 itemCount: _messages.length + (_isBotTyping ? 1 : 0),
                 itemBuilder: (context, index) {
                   if (_isBotTyping && index == _messages.length) {
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeOut,
+                      );
+                    });
                     return Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -875,13 +911,27 @@ class _UserPageState extends State<UserPage> with SingleTickerProviderStateMixin
                         color: message["isUser"] ? Colors.grey[700] : Colors.grey[300],
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: Text(
-                        message["text"] ?? '',
-                        style: TextStyle(
-                          color: message["isUser"] ? Colors.white : Colors.black,
-                          fontSize: 16,
-                        ),
-                      ),
+                      child: message["isUser"]
+                          ? Text(
+                              message["text"] ?? '',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            )
+                          : Linkify(
+                              onOpen: _onOpenLink,
+                              text: message["text"] ?? '',
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                              linkStyle: const TextStyle(
+                                color: Colors.blue,
+                                fontSize: 16,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
                     ),
                   );
                 },
